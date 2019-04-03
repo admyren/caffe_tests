@@ -95,12 +95,14 @@ layer {
     }
   }
 }
+
 layer {
   name: "relu1"
   type: "ReLU"
   bottom: "ip1"
   top: "ip1"
 }
+
 layer {
   name: "ip2"
   type: "InnerProduct"
@@ -122,20 +124,22 @@ layer {
     }
   }
 }
-layer {
-  name: "accuracy"
-  type: "Accuracy"
-  bottom: "ip2"
-  bottom: "label"
-  top: "accuracy"
-  include {
-    phase: TEST
-  }
-}
+
+#layer {
+#  name: "accuracy"
+#  type: "Accuracy"
+#  bottom: "ip2"
+#  bottom: "label"
+#  top: "accuracy"
+#  include {
+#    phase: TEST
+#  }
+#}
+
 layer {
   name: "loss"
   type: "SoftmaxWithLoss"
   bottom: "ip2"
-  bottom: "label"
+#  bottom: "label"
   top: "loss"
 }
