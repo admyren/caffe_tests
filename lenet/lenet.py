@@ -48,6 +48,8 @@ out_feat_ext = net_feat_ext.forward()
 net_classify.blobs['data'].data[...] = out_feat_ext['pool2'];
 out_classify = net_classify.forward();
 
+print(out_feat_ext['pool2']);
+
 
 #l_idx = list(net._layer_names).index('pool2')
 
