@@ -71,16 +71,16 @@ out = net.forward()
 #print(out.argmax())
 #print(out.argmin())
 #print(max(out))
-print(out['pool2'].max())
-print(out['pool2'].min())
+#print(out['pool2'].max())
+#print(out['pool2'].min())
 
-l_idx = list(net._layer_names).index('pool2')
+#l_idx = list(net._layer_names).index('pool2')
 
-tops = [(net._blob_names[bi], net.blobs[net._blob_names[bi]].data.shape) 
-        for bi in list(net._top_ids(l_idx))]
+#tops = [(net._blob_names[bi], net.blobs[net._blob_names[bi]].data.shape) 
+#        for bi in list(net._top_ids(l_idx))]
 
-for tn in tops:
-    print(tn)
+#for tn in tops:
+#    print(tn)
 '''
     print(net.blobs[tn].data.shape)
 '''
@@ -89,4 +89,4 @@ for tn in tops:
 #print(out.shape)
 #print(out)
 
-#print("Predicted class is #{}.".format(out['prob'].argmax()))
+print("Predicted class is #{}.".format(out['prob'].argmax()))
