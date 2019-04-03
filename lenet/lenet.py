@@ -27,6 +27,7 @@ for i in range(0,28):
         Xdata0[i,j] = Xdata0[i,j]/maxVal 
     
 print(Xdata0.max())
+print(Xdata0.min())
 
 # make sure dimension is correct: 28*28*3
 print('data dim:', Xdata0.shape)
@@ -34,7 +35,7 @@ print('data dim:', Xdata0.shape)
 temp1 = Xdata0
 print(temp1.shape)
 temp=temp1.reshape(1,1,28,28)
-print(temp)
+#print(temp)
 
 # feed data to the network
 net.blobs['data'].data[...] = temp;
