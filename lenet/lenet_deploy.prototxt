@@ -125,6 +125,13 @@ layer {
   }
 }
 
+layer {
+  name: "prob"
+  type: "Softmax"
+  bottom: "ip2"
+  top: "prob"
+}
+
 #layer {
 #  name: "accuracy"
 #  type: "Accuracy"
@@ -136,10 +143,10 @@ layer {
 #  }
 #}
 
-layer {
-  name: "loss"
-  type: "SoftmaxWithLoss"
-  bottom: "ip2"
+#layer {
+#  name: "loss"
+#  type: "SoftmaxWithLoss"
+#  bottom: "ip2"
 #  bottom: "label"
-  top: "loss"
-}
+#  top: "loss"
+#}
