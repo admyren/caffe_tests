@@ -50,7 +50,7 @@ net_classify.blobs['data'].data[...] = out_feat_ext['pool2'];
 out_classify = net_classify.forward();
 
 #print(out_feat_ext['pool2']);
-out_rounded = np.around(out_feat_ext['pool2'])
+out_rounded = np.floor(out_feat_ext['pool2'])
 print(out_rounded)
 
 
