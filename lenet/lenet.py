@@ -21,8 +21,8 @@ import caffe
 
 # load trained network
 caffe.set_mode_cpu()
-net = caffe.Net('haddoc2/example/caffe/lenet_deploy.prototxt',
-                'haddoc2/example/caffe/lenet_iter_10000.caffemodel',
+net = caffe.Net('lenet_deploy.prototxt',
+                'lenet_iter_10000.caffemodel',
                 caffe.TEST)
 
 
@@ -33,7 +33,7 @@ net = caffe.Net('haddoc2/example/caffe/lenet_deploy.prototxt',
 # load image digit 
 #Xdata0= caffe.io.load_image('nr.jpg')
 #Xdata0= caffe.io.load_image('img_arr.npy')
-Xdata0 = np.load('img_arr.npy')
+Xdata0 = np.load('9.npy')
 
 maxVal = Xdata0.max()
 for i in range(0,28):
