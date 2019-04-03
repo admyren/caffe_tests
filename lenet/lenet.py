@@ -45,7 +45,7 @@ net_feat_ext.blobs['data'].data[...] = temp;
 out = net.forward() 
 out_feat_ext = net_feat_ext.forward()
 
-net_classify.blobs['data'].data[...] = out_feat_ext;
+net_classify.blobs['data'].data[...] = out_feat_ext['pool2'];
 out_classify = net_classify.forward();
 
 
