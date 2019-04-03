@@ -8,6 +8,14 @@ caffe.set_mode_cpu()
 net = caffe.Net('lenet_deploy.prototxt',
                 'lenet_iter_10000.caffemodel',
                 caffe.TEST)
+      
+net_feat_ext = caffe.Net('lenet_feat_ext.prototxt',
+                'lenet_iter_10000.caffemodel',
+                caffe.TEST)          
+net_classify = caffe.Net('lenet_classify.prototxt',
+                'lenet_iter_10000.caffemodel',
+                caffe.TEST)
+
 
 # load numpy array holding digit
 Xdata0 = np.load('img_test/5.npy')
@@ -30,9 +38,16 @@ print(temp)
 
 # feed data to the network
 net.blobs['data'].data[...] = temp;
+net_feat_ext.blobs['data'].data[...] = temp;
+
 
 # perfrom forward operation
 out = net.forward() 
+out_feat_ext = net_feat_ext.forward()
+
+net_classify.blobs['data'].data[...] = out_feat_ext;
+out_classify = net_classify.forward();
+
 
 #l_idx = list(net._layer_names).index('pool2')
 
@@ -48,3 +63,4 @@ out = net.forward()
 
 
 print("Predicted class is #{}.".format(out['prob'].argmax()))
+print("Predicted class is #{}.".format(out_classify['prob'].argmax()))
