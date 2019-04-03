@@ -2,7 +2,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 import csv
 
-digit = 10
+digit = 19
 
 results = []
 with open("mnist_test.csv") as csvfile:
