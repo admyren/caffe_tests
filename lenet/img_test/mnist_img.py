@@ -21,3 +21,5 @@ for x in range(0, 28):
 filename = a[0,0] + '.jpg'
 print(a[0,0])
 plt.imsave(filename, img_arr)
+
+np.save(a[0,0], img_arr)
