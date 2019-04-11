@@ -101,12 +101,12 @@ layer {
 
 
 
-layer {
-  name: "prob"
-  type: "Softmax"
-  bottom: "conv3"
-  top: "prob"
-}
+#layer {
+#  name: "prob"
+#  type: "Softmax"
+#  bottom: "conv3"
+#  top: "prob"
+#}
 
 #layer {
 #  name: "accuracy"

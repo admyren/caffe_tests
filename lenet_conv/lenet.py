@@ -41,7 +41,7 @@ out = net.forward()
 
 
 
-print(out['prob']);
+print(out['conv3']);
 #out_rounded = np.floor(out['prob'])
 #print(out_rounded)
 
@@ -59,4 +59,4 @@ print(out['prob']);
   #print("output name % s has shape % d" %(tn, net.blobs[tn].data.shape))
 
 
-print("Predicted class is #{}.".format(out['prob'].argmax()))
+#print("Predicted class is #{}.".format(out['prob'].argmax()))
