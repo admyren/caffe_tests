@@ -8,6 +8,10 @@ caffe.set_mode_cpu()
 net = caffe.Net('lenet_deploy.prototxt',
                 'lenet_iter_2000.caffemodel',
                 caffe.TEST)
+                
+feat_ext_net = caffe.Net('lenet_feat_ext.prototxt',
+                'lenet_iter_2000.caffemodel',
+                caffe.TEST)
 
 
 # load numpy array holding digit
@@ -32,16 +36,18 @@ temp=temp1.reshape(1,1,28,28)
 
 # feed data to the network
 net.blobs['data'].data[...] = temp;
+feat_ext_net.blobs['data'].data[...] = temp;
 
 
 
 # perfrom forward operation
 out = net.forward() 
+feat_ext_out = feat_ext_net.forward() 
 
 
 
 
-print(out['conv3']);
+print(feat_ext_out['conv3']);
 #out_rounded = np.floor(out['prob'])
 #print(out_rounded)
 
@@ -59,4 +65,4 @@ print(out['conv3']);
   #print("output name % s has shape % d" %(tn, net.blobs[tn].data.shape))
 
 
-#print("Predicted class is #{}.".format(out['prob'].argmax()))
+print("Predicted class is #{}.".format(out['prob'].argmax()))
