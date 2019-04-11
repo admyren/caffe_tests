@@ -41,9 +41,9 @@ out = net.forward()
 
 
 
-#print(out_feat_ext['pool2']);
-out_rounded = np.floor(out['pool2'])
-print(out_rounded)
+print(out['prob']);
+#out_rounded = np.floor(out['prob'])
+#print(out_rounded)
 
 
 #l_idx = list(net._layer_names).index('pool2')
