@@ -149,22 +149,46 @@ layer {
   top: "conv3"
 }
 
+#layer {
+#  name: "pool3"
+#  type: "Pooling"
+#  bottom: "conv3"
+#  top: "pool3"
+#  pooling_param {
+#    pool: MAX
+#    kernel_size: 2
+#    stride: 2
+#  }
+#}
+
 layer {
-  name: "pool3"
-  type: "Pooling"
+  name: "conv4"
+  type: "Convolution"
   bottom: "conv3"
-  top: "pool3"
-  pooling_param {
-    pool: MAX
+  top: "conv4"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  convolution_param {
+    num_output: 10
     kernel_size: 2
-    stride: 2
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+    }
   }
 }
 
 layer {
   name: "accuracy"
   type: "Accuracy"
-  bottom: "conv3"
+  bottom: "conv4"
   bottom: "label"
   top: "accuracy"
   include {
@@ -174,7 +198,7 @@ layer {
 layer {
   name: "loss"
   type: "SoftmaxWithLoss"
-  bottom: "conv3"
+  bottom: "conv4"
   bottom: "label"
   top: "loss"
 }
