@@ -71,7 +71,7 @@ layer {
   top: "pool1"
   pooling_param {
     pool: MAX
-    kernel_size: 2#24
+    kernel_size: 24
     stride: 2
   }
 }
