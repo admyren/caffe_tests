@@ -47,7 +47,7 @@ feat_ext_out = feat_ext_net.forward()
 
 
 
-print(feat_ext_out['conv3']);
+print(feat_ext_out['pool1']);
 #out_rounded = np.floor(out['prob'])
 #print(out_rounded)
 
