@@ -15,7 +15,7 @@ feat_ext_net = caffe.Net('lenet_feat_ext.prototxt',
 
 
 # load numpy array holding digit
-Xdata0 = np.load('img_test/3.npy')
+Xdata0 = np.load('img_test/5.npy')
 
 # Normalize
 maxVal = Xdata0.max()
