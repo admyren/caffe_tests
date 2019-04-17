@@ -161,30 +161,6 @@ layer {
   }
 }
 
-#layer {
-#  name: "conv4"
-#  type: "Convolution"
-#  bottom: "conv3"
-#  top: "conv4"
-#  param {
-#    lr_mult: 1
-#  }
-#  param {
-#    lr_mult: 2
-#  }
-#  convolution_param {
-#    num_output: 10
-#    kernel_size: 2
-#    stride: 1
-#    weight_filler {
-#      type: "xavier"
-#    }
-#    bias_filler {
-#      type: "constant"
-#    }
-#  }
-#}
-
 layer {
   name: "accuracy"
   type: "Accuracy"
